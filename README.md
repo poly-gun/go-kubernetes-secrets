@@ -2,9 +2,12 @@
 
 `go-kubernetes-secrets` provides utilities for extracting volume-mounted Kubernetes secrets.
 
+By using `go-kubernetes-secrets`, Kubernetes workload(s) receive automatic updates whenever a `Secret` is
+modified -- avoiding the need to restart or to redeploy.
+
 ## Overview
 
-Consider the following secret:
+Consider the following `Secret`:
 
 ```yaml
 apiVersion: v1
@@ -19,7 +22,7 @@ data:
 type: Opaque
 ```
 
-Mounted to the following deployment:
+Configured with the `Deployment`:
 
 ```yaml
 apiVersion: apps/v1
@@ -55,7 +58,7 @@ spec:
                             mountPath: /etc/secrets/test-data
 ```
 
-The secret will be mounted within `/etc/secrets`:
+The `Secret` will be mounted within the `/etc/secrets` directory:
 
 ```
 .
@@ -66,7 +69,9 @@ The secret will be mounted within `/etc/secrets`:
     └── password    -> ..data/password
 ```
 
-Note that the references are *symbolic links*.
+> [!NOTE]
+> The `host`, `port`, `username`, and `password` file(s) are *symbolic links*, and represent the individual key-value pairs
+> of the `test-data`'s `Secret`.
 
 `go-kubernetes-secrets` will parse a given mount directory to return a [`Secrets`](./secrets.go) mapping, abstracting
 the overhead of parsing a file-system, converting the binary contents of each key's file contents to a string, and
