@@ -3,11 +3,11 @@
 `go-kubernetes-secrets` provides utilities for extracting volume-mounted Kubernetes secrets.
 
 By using `go-kubernetes-secrets`, Kubernetes workload(s) receive automatic updates whenever a `Secret` is
-modified -- avoiding the need to restart or to redeploy.
+modified -- avoiding restarts, redeployments, and base64 decoding.
 
 ## Overview
 
-Consider the following `Secret`:
+Consider the `Secret`:
 
 ```yaml
 apiVersion: v1
