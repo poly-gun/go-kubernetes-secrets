@@ -80,7 +80,7 @@ organizing the secret-to-key value(s):
 ```json
 {
     "test-data": {
-        "host": "example.ethr.gg",
+        "host": "polygun.com",
         "port": "8080",
         "username": "segmentational",
         "password": "P@ssw0rd"

@@ -1,1 +1,6 @@
-!ethr/**
+..data
+
+hostname
+password
+port
+username
