@@ -68,7 +68,7 @@ func Test(t *testing.T) {
 
 		t.Run("Base", func(t *testing.T) {
 			if e := instance.WalkWithContext(ctx, func(o *secrets.Options) {
-				o.Directory = secrets.Path(target)
+				o.Directory = target
 			}); e != nil {
 				t.Fatalf("Walk() Returned an Error: %v", e)
 			}

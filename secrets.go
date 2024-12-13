@@ -69,16 +69,7 @@ func (s Secrets) walk(ctx context.Context, settings ...Settings) (e error) {
 	default:
 		slog.DebugContext(ctx, "Walking System via Directory Configuration", slog.Any("configuration", o))
 
-		var directory string
-		directory, e = o.Directory.String()
-
-		if e != nil {
-			slog.ErrorContext(ctx, "Unable to Compute Directory String Literal", slog.String("error", e.Error()), slog.Any("configuration", o))
-
-			return e
-		}
-
-		e = filepath.WalkDir(directory, func(path string, d fs.DirEntry, err error) error {
+		e = filepath.WalkDir(o.Directory, func(path string, d fs.DirEntry, err error) error {
 			if err != nil {
 				return err
 			}
