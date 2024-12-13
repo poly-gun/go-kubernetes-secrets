@@ -1,6 +1,6 @@
 # `go-kubernetes-secrets`
 
-`go-kubernetes-secrets` provides utilities for extracting volume-mounted Kubernetes secrets.
+`go-kubernetes-secrets` is a zero-dependency package that provides utilities for extracting volume-mounted Kubernetes secrets.
 
 By using `go-kubernetes-secrets`, Kubernetes workload(s) receive automatic updates whenever a `Secret` is
 modified -- avoiding restarts, redeployments, and base64 decoding.
@@ -113,7 +113,7 @@ import (
 	"context"
 	"fmt"
 
-	"go-kubernetes-secrets"
+	"github.com/poly-gun/go-kubernetes-secrets"
 )
 
 func main() {
@@ -155,7 +155,7 @@ import (
     "embed"
     "fmt"
 
-    "go-kubernetes-secrets"
+    "github.com/poly-gun/go-kubernetes-secrets"
 )
 
 //go:embed test-data

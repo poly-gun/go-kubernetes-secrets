@@ -1,5 +1,3 @@
-module go-kubernetes-secrets
+module github.com/poly-gun/go-kubernetes-secrets
 
-go 1.22.3
-
-toolchain go1.22.7
+go 1.21.3

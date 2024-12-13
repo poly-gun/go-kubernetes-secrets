@@ -3,7 +3,7 @@ package secrets_test
 import (
 	"context"
 
-	"go-kubernetes-secrets"
+	"github.com/poly-gun/go-kubernetes-secrets"
 )
 
 func Example() {

@@ -8,7 +8,7 @@ import (
 	"strings"
 	"testing"
 
-	"go-kubernetes-secrets"
+	"github.com/poly-gun/go-kubernetes-secrets"
 )
 
 //go:embed test-data
