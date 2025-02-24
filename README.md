@@ -110,14 +110,14 @@ go get -u github.com/poly-gun/go-kubernetes-secrets
 package main
 
 import (
-	"context"
-	"fmt"
+    "context"
+    "fmt"
 
-	"github.com/poly-gun/go-kubernetes-secrets"
+    "github.com/poly-gun/go-kubernetes-secrets"
 )
 
 func main() {
-	ctx := context.Background()
+    ctx := context.Background()
 
     instance := secrets.New()
     e := instance.WalkWithContext(ctx, func(o *secrets.Options) {
@@ -128,21 +128,22 @@ func main() {
         panic(e)
     }
 
-	for secret, keys := range instance {
-		for key, value := range keys {
-			fmt.Println("Secret", secret, "Key", key, "Value", value)
-		}
-	}
+    for secret, keys := range instance {
+        for key, value := range keys {
+            fmt.Println("Secret", secret, "Key", key, "Item", value)
+        }
+    }
 
-	service := instance["service"]
+    service := instance["service"]
 
-	port := service["port"]
-	hostname := service["hostname"]
-	username := service["username"]
-	password := service["password"]
+    port := service["port"]
+    hostname := service["hostname"]
+    username := service["username"]
+    password := service["password"]
 
-	fmt.Println("Port", port, "Hostname", hostname, "Username", username, "Password", password)
+    fmt.Println("Port", port, "Hostname", hostname, "Username", username, "Password", password)
 }
+
 ```
 
 ###### FS Usage
@@ -175,7 +176,7 @@ func main() {
 
     for secret, keys := range instance {
         for key, value := range keys {
-            fmt.Println("Secret", secret, "Key", key, "Value", value)
+            fmt.Println("Secret", secret, "Key", key, "Item", value)
         }
     }
 
